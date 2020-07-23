@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 
 // Modulos
 import { AppRoutingModule } from './app-routing.module';
@@ -22,7 +24,10 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
     BrowserModule,
     AppRoutingModule,
     PagesModule,
-    AuthModule
+    AuthModule,
+    FormsModule,
+    HttpClientModule
+    
   ],
   bootstrap: [AppComponent]
 })
