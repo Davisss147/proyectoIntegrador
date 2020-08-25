@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
   // }
 
 
-  Submit(form) {
+  onSubmit(form) {
     this._userService.singup(this.user).subscribe(
       response => {
         // Devuelve el token
@@ -59,6 +59,7 @@ export class LoginComponent implements OnInit {
                 // Persistir los datos del usuario identificado
                 console.log(this.token);
                 console.log(this.identity);
+
                 // transoforma a un obejto json que me permite guardar en el localstorage
                 localStorage.setItem('token', this.token);
                 localStorage.setItem('identity', JSON.stringify(this.identity));

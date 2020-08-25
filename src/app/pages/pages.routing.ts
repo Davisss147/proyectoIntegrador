@@ -3,12 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProgressComponent } from './progress/progress.component';
-import { Grafica1Component } from './grafica1/grafica1.component';
-import { AccountSettingsComponent } from './account-settings/account-settings.component';
-import { PromesasComponent } from './promesas/promesas.component';
-import { RxjsComponent } from './rxjs/rxjs.component';
-import { UserEditComponent } from '../components/user-edit/user-edit.component';
+
+import { AjustesComponent } from './ajustes/ajustes.component';
+import { BlogComponent } from './blog/blog.component';
+import { CategoriasComponent } from './categorias/categorias.component';
 
 
 import { LoginComponent } from '../auth/login/login.component'
@@ -20,12 +18,11 @@ const routes: Routes = [
         // canActivate: [LoginComponent],
         children: [
             { path: 'dashboard', component: DashboardComponent, data: { titulo: 'Dashboard' } },
-            { path: 'progress', component: ProgressComponent, data: { titulo: 'ProgressBar' }},
-            { path: 'grafica1', component: Grafica1Component, data: { titulo: 'Gráfica #1' }},
-            { path: 'account-settings', component: AccountSettingsComponent, data: { titulo: 'Ajustes de cuenta' }},
-            { path: 'promesas', component: PromesasComponent, data: { titulo: 'Promesas' }},
-            { path: 'rxjs', component: RxjsComponent, data: { titulo: 'RxJs' }},
-            { path: 'ajustes', component: UserEditComponent, data: { titulo: 'ajustes' }}
+            { path: 'blog', component: BlogComponent, data: { titulo: 'Blog' }},
+            { path: 'categorias', component: CategoriasComponent, data: { titulo: 'Categorias' }},
+            // { path: 'account-settings', component: AccountSettingsComponent, data: { titulo: 'Ajustes de cuenta' }},
+            { path: 'ajustes', component: AjustesComponent, data: { titulo: 'Ajustes' }},
+            // { path: 'rxjs', component: RxjsComponent, data: { titulo: 'RxJs' }},
         ]
     },
 ];

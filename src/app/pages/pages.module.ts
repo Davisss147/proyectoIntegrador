@@ -8,12 +8,19 @@ import { SharedModule } from '../shared/shared.module';
 import { ComponentsModule } from '../components/components.module';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ProgressComponent } from './progress/progress.component';
-import { Grafica1Component } from './grafica1/grafica1.component';
+// import { ProgressComponent } from './progress/progress.component';
+// import { Grafica1Component } from './grafica1/grafica1.component';
 import { PagesComponent } from './pages.component';
-import { AccountSettingsComponent } from './account-settings/account-settings.component';
-import { PromesasComponent } from './promesas/promesas.component';
-import { RxjsComponent } from './rxjs/rxjs.component';
+// import { AccountSettingsComponent } from './account-settings/account-settings.component';
+// import { PromesasComponent } from './promesas/promesas.component';
+// import { RxjsComponent } from './rxjs/rxjs.component';
+import { AjustesComponent } from './ajustes/ajustes.component';
+import { BlogComponent } from './blog/blog.component';
+import { CategoriasComponent } from './categorias/categorias.component';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
+import { AngularFileUploaderModule } from "angular-file-uploader";
+
+
 
 
 
@@ -21,26 +28,32 @@ import { RxjsComponent } from './rxjs/rxjs.component';
 @NgModule({
   declarations: [
     DashboardComponent,
-    ProgressComponent,
-    Grafica1Component,
+    // ProgressComponent,
+    // Grafica1Component,
     PagesComponent,
-    AccountSettingsComponent,
-    PromesasComponent,
-    RxjsComponent,
+    // AccountSettingsComponent,
+    // PromesasComponent,
+    // RxjsComponent,
+    AjustesComponent,
+    BlogComponent,
+    CategoriasComponent,
   ],
   exports: [
     DashboardComponent,
-    ProgressComponent,
-    Grafica1Component,
+    // ProgressComponent,
+    // Grafica1Component,
     PagesComponent,
-    AccountSettingsComponent
+    // AccountSettingsComponent
   ],
   imports: [ 
     CommonModule,
     FormsModule,
     SharedModule,
     RouterModule,
-    ComponentsModule
+    ComponentsModule,
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot(),
+    AngularFileUploaderModule,
   ]
 })
 export class PagesModule { }

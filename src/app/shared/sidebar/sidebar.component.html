@@ -37,6 +37,27 @@
                         </li>
                     </ul>
                 </li>
+
+
+                <li *ngFor="let item2 of menuItems2"> 
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                        <i class="mdi mdi-gauge"></i>
+                        <span class="hide-menu"> 
+                            {{ item2.titulo }} 
+                            <!-- <span class="label label-rouded label-themecolor pull-right">
+                                {{ item2.submenu.length }}
+                            </span> -->
+                        </span>
+                    </a>
+
+                    <ul aria-expanded="false" class="collapse">
+                        <li *ngFor="let category of categories">
+                            <a routerLink="login"
+                               routerLinkActive="active"
+                               [routerLinkActiveOptions]="{ exact: true }"> {{ category.name }} </a>
+                        </li>
+                    </ul>
+                </li>
                 
             </ul>
         </nav>
