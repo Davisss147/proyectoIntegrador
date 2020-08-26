@@ -11,6 +11,9 @@ import { AuthModule } from './auth/auth.module';
 import { AppComponent } from './app.component';
 import { NopagefoundComponent } from './nopagefound/nopagefound.component';
 
+import { IdentityGuard } from './services/identity.guard';
+import { UserService } from './services/user.service';
+
 
 
 
@@ -29,6 +32,10 @@ import { NopagefoundComponent } from './nopagefound/nopagefound.component';
     HttpClientModule
     
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [
+    IdentityGuard,
+    UserService
+  ]
 })
 export class AppModule { }

@@ -52,7 +52,7 @@
 
                     <ul aria-expanded="false" class="collapse">
                         <li *ngFor="let category of categories">
-                            <a routerLink="login"
+                            <a [routerLink]="['categoria', category.id]"
                                routerLinkActive="active"
                                [routerLinkActiveOptions]="{ exact: true }"> {{ category.name }} </a>
                         </li>

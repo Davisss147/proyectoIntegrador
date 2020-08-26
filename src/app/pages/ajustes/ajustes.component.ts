@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { User } from '../../models/user.model';
 import { UserService } from '../../services/user.service';
 import { global } from '../../services/global.service';
@@ -19,10 +20,11 @@ export class AjustesComponent implements OnInit {
 
   public froala_options: Object = {
     charCounterCount: true,
-    toolbarButtons: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
-    toolbarButtonsXS: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
-    toolbarButtonsSM: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
-    toolbarButtonsMD: ['bold', 'italic', 'underline', 'paragraphFormat', 'alert'],
+    language: 'es',
+    toolbarButtons: ['bold', 'italic', 'underline', 'paragraphFormat'],
+    toolbarButtonsXS: ['bold', 'italic', 'underline', 'paragraphFormat'],
+    toolbarButtonsSM: ['bold', 'italic', 'underline', 'paragraphFormat'],
+    toolbarButtonsMD: ['bold', 'italic', 'underline', 'paragraphFormat'],
   };
   public afuConfig = {
     multiple: false,
@@ -42,7 +44,9 @@ export class AjustesComponent implements OnInit {
   };
 
   constructor(
-    private _userService: UserService
+    private _userService: UserService,
+    private _router: Router,
+
   ) {
     this.user = new User(1, '', '', 'ROLE_USER', '', '', '', '');
     this.identity = this._userService.getIdentity();
@@ -87,9 +91,10 @@ export class AjustesComponent implements OnInit {
           if (response.changes.image) {
             this.user.image = response.changes.image;
           }
-
           this.identity = this.user;
           localStorage.setItem('identity', JSON.stringify(this.identity));
+          
+
         } else {
           this.status = 'error';
         }

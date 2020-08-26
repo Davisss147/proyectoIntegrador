@@ -31,18 +31,6 @@ export class LoginComponent implements OnInit {
     this.logout();
   }
 
-  // canActivate(){
-  //   if(this._userService.estaLogueado()){
-  //     console.log('Paso el guard');
-  //     return true;
-  //   } else{
-  //     console.log('Bloqueado por el guard');
-  //     this._router.navigate(['/login']);
-  //     return false;
-  //   }
-  // }
-
-
   onSubmit(form) {
     this._userService.singup(this.user).subscribe(
       response => {
@@ -63,7 +51,7 @@ export class LoginComponent implements OnInit {
                 // transoforma a un obejto json que me permite guardar en el localstorage
                 localStorage.setItem('token', this.token);
                 localStorage.setItem('identity', JSON.stringify(this.identity));
-                this._router.navigate(['dashboard']);
+                this._router.navigate(['dashboard/dashboard']);
 
             },
             error => {

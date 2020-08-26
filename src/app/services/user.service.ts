@@ -58,6 +58,9 @@ export class UserService {
     }
 
     updateI(token, user): Observable<any> {
+        // Limpia el campo content
+        user.description = global.htmlEntities(user.description);
+
         let json = JSON.stringify(user);
         let params = "json=" + json;
 
@@ -101,5 +104,15 @@ export class UserService {
         }
 
         return this.image;
+    }
+
+    getPosts(id):Observable<any>{
+        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+        return this._http.get(this.url + 'post/user/' + id, {headers: headers});
+    }
+
+    getUser(id):Observable<any>{
+        let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+        return this._http.get(this.url + 'user/userId/' + id, {headers: headers});
     }
 }

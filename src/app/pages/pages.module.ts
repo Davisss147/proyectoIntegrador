@@ -6,19 +6,17 @@ import { FormsModule } from '@angular/forms';
 // Modulos
 import { SharedModule } from '../shared/shared.module';
 import { ComponentsModule } from '../components/components.module';
-
 import { DashboardComponent } from './dashboard/dashboard.component';
-// import { ProgressComponent } from './progress/progress.component';
-// import { Grafica1Component } from './grafica1/grafica1.component';
 import { PagesComponent } from './pages.component';
-// import { AccountSettingsComponent } from './account-settings/account-settings.component';
-// import { PromesasComponent } from './promesas/promesas.component';
-// import { RxjsComponent } from './rxjs/rxjs.component';
 import { AjustesComponent } from './ajustes/ajustes.component';
 import { BlogComponent } from './blog/blog.component';
 import { CategoriasComponent } from './categorias/categorias.component';
 import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 import { AngularFileUploaderModule } from "angular-file-uploader";
+import { PostDetailComponent } from './post-detail/post-detail.component';
+import { PostEditComponent } from './post-edit/post-edit.component';
+import { CategoryDetailComponent } from './category-detail/category-detail.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -28,22 +26,19 @@ import { AngularFileUploaderModule } from "angular-file-uploader";
 @NgModule({
   declarations: [
     DashboardComponent,
-    // ProgressComponent,
-    // Grafica1Component,
     PagesComponent,
-    // AccountSettingsComponent,
-    // PromesasComponent,
-    // RxjsComponent,
     AjustesComponent,
     BlogComponent,
     CategoriasComponent,
+    PostDetailComponent,
+    PostEditComponent,
+    CategoryDetailComponent,
+    ProfileComponent,
   ],
   exports: [
     DashboardComponent,
-    // ProgressComponent,
-    // Grafica1Component,
     PagesComponent,
-    // AccountSettingsComponent
+
   ],
   imports: [ 
     CommonModule,

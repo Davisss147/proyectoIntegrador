@@ -31,7 +31,6 @@ export class CategoriasComponent implements OnInit {
   }
 
   ngOnInit(){
-  // this.getCategories();
   
   }
 
@@ -42,7 +41,7 @@ export class CategoriasComponent implements OnInit {
               this.category = response.category;
               this.status = 'success';
 
-              this._router.navigate(['dashboard']);
+              this._router.navigate(['dashboard/dashboard']);
           }
       },
       error => {
@@ -51,18 +50,4 @@ export class CategoriasComponent implements OnInit {
       }
     );
   }
-
-  // getCategories(){
-  //   this._categoryService.getCategories().subscribe(
-  //     response => {
-  //       if(response.status == 'success'){
-  //         this.categories = response.categories;
-  //         console.log(this.categories);
-  //       }
-  //     },
-  //     error => {
-  //       console.log(error);
-  //     }
-  //   );
-  // }
 }

@@ -7,18 +7,19 @@ import { Post } from '../../models/post.model';
 import { global } from '../../services/global.service';
 
 @Component({
-  selector: 'app-blog',
-  templateUrl: './blog.component.html',
-  styleUrls: [],
+  selector: 'app-post-edit',
+  templateUrl: '../blog/blog.component.html',
   providers: [UserService, CategoryService, PostService]
+
 })
-export class BlogComponent implements OnInit {
+export class PostEditComponent implements OnInit {
 
   public identity;
   public token;
   public post: Post;
   public categories;
   public status;
+  public is_edit: boolean;
 
   public froala_options: Object = {
     charCounterCount: true,
@@ -43,7 +44,7 @@ export class BlogComponent implements OnInit {
     hideProgressBar: false,
     hideResetBtn: true,
     hideSelectBtn: false,
-    attachPinText: 'Subir Imagen',
+    attachPinText: 'Subir imagen',
   };
 
 
@@ -57,12 +58,13 @@ export class BlogComponent implements OnInit {
   ) {
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
+    this.is_edit = true;
    }
 
   ngOnInit(){
     this.getCategories();
     this.post = new Post(1, this.identity.sub, 1, '', '', null, null );
-    console.log(this.post);
+    this.getPost();
   }
 
   getCategories(){
@@ -79,26 +81,55 @@ export class BlogComponent implements OnInit {
     );
   }
 
+  getPost(){
+    // Sacar el id del post de la url
+    this._route.params.subscribe(params => {
+      let id = +params['id'];
+      
+      // Peticion ajax para sacar los datos del post
+      this._postService.getPost(id).subscribe(
+        response => {
+          if(response.status == 'success'){
+            this.post = response.posts;
+
+            if(this.post.user_id != this.identity.sub){
+              this._router.navigate(['dashboard/dashboard']);
+            }
+
+          }else{
+            this._router.navigate(['dashboard']);
+          }
+        },
+        error => {
+          console.log(error);
+          this._router.navigate(['dashboard']);
+        }
+      );
+
+    });
+  }
+
   imageUpload(data){
     let image_data = JSON.parse(data.response);
     this.post.image = image_data.image;
   }
 
   onSubmit(form){
-    this._postService.create(this.token, this.post).subscribe(
-      response => {
-        if(response.status == 'success'){
-          this.post = response.post;
-          this.status = 'success';
-          this._router.navigate(['/dashboard/dashboard']);
-        }else{
+     this._postService.update(this.token, this.post, this.post.id).subscribe(
+       response => {
+         if (response.status == 'success'){
+            this.status = 'success';
+
+            //redirigimos a la pagina del post 
+            
+            this._router.navigate(['/dashboard/entrada', this.post.id]);
+         }else{
+           this.status = 'error';
+         }
+       },
+       error => {
           this.status = 'error';
-        }
-      },
-      error => {
-        console.log(error);
-        this.status = 'error';
-      }
-    );
+       }
+     );
   }
 }

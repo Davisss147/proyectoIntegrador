@@ -3,7 +3,18 @@
 </div>
 
 <div class="container-fluid mt-3" *ngIf="posts">
-    <!-- <h1>{{page_title}}</h1> -->
+
+    <div id="user-card">
+        <div class="avatar_mask_profile float-left mr-2">
+            <img src="{{url + 'user/avatar/' + identity.image}}" class="avatar_nav" />
+        </div>
+        <div class="data_mask float-left">
+            <h1>{{user.name + ' ' + user.surname}}</h1>
+            <p [innerHTML]="user.description"></p>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <hr>
 
     <div class="card-columns">
         <article class="card w-100" *ngFor="let post of posts">
@@ -32,7 +43,8 @@
                         <a [routerLink]="['/dashboard/editar-entrada', post.id]" class="btn btn-warning mr-2">Editar</a>
 
                         <!-- Button to Open the Modal -->
-                        <button type="button" class="btn btn-danger" data-toggle="modal" [attr.data-target]="'#myModal'+post.id">
+                        <button type="button" class="btn btn-danger" data-toggle="modal"
+                            [attr.data-target]="'#myModal'+post.id">
                             Borrar
                         </button>
 
@@ -54,8 +66,10 @@
 
                                     <!-- Modal footer -->
                                     <div class="modal-footer">
-                                        <a (click)="deletePost(post.id)" class="btn btn-danger" data-dismiss="modal">Borrar</a>
-                                        <button type="button" class="btn btn-warning" data-dismiss="modal">Cancelar</button>
+                                        <a (click)="deletePost(post.id)" class="btn btn-danger"
+                                            data-dismiss="modal">Borrar</a>
+                                        <button type="button" class="btn btn-warning"
+                                            data-dismiss="modal">Cancelar</button>
                                     </div>
 
                                 </div>
@@ -68,4 +82,5 @@
             </div>
         </article>
     </div>
+
 </div>
