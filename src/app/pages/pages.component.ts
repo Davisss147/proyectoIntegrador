@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { SettingsService } from '../services/settings.service';
 import { CategoryService } from '../services/category.service';
 import { Post } from '../models/post.model';
-// import { PostService } from '../services/post.service';
 import { global } from '../services/global.service';
 
 
@@ -18,11 +17,9 @@ export class PagesComponent implements OnInit {
 
   public url;
   public categories;
-  // public posts: Array<Post>;
 
   constructor(
       private settingsService: SettingsService,
-      // private _postService: PostService,
       private _categoryService: CategoryService
      ) { 
         this.url = global.url;
@@ -30,7 +27,6 @@ export class PagesComponent implements OnInit {
 
   ngOnInit(){
     this.getCategories();
-    // this.getPosts();
     customInitFunctions();
   }
 
@@ -47,20 +43,6 @@ export class PagesComponent implements OnInit {
       }
     );
   }
-
-  // getPosts(){
-  //   this._postService.getPosts().subscribe(
-  //     response => {
-  //       if(response.status == 'success'){
-  //         this.posts = response.posts;
-  //         console.log(this.posts);
-  //       }
-  //     },
-  //     error => {
-  //       console.log(error);
-  //     }
-  //   );
-  // }
 }
 
 

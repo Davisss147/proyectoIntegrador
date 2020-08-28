@@ -28,35 +28,32 @@
             <!-- User profile and search -->
             <ul class="navbar-nav my-lg-0" *ngIf="identity && identity.name">
                 <!-- Search -->
-                <li class="nav-item hidden-xs-down search-box"> <a
-                        class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)"><i
-                            class="ti-search"></i></a>
-                    <form class="app-search">
-                        <input type="text" class="form-control" placeholder="Search & enter"> <a class="srh-btn"><i
-                                class="ti-close"></i></a> </form>
-                    {{identity.name + ' ' + identity.surname}}
+                <li class="nav-item hidden-xs-down search-box"> 
+                    <a class="nav-link hidden-sm-down waves-effect waves-dark" href="javascript:void(0)">
+                        {{identity.name + ' ' + identity.surname}}
+                    </a>
                 </li>
 
                 <!-- Profile -->
                 <li class="nav-item dropdown">
+
                     <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false"><img src="{{url + 'user/avatar/' + identity.image}}"
+                        aria-haspopup="true" aria-expanded="false" *ngIf="!identity.image">
+                        <img src="assets/images/user-default.png"
+                        alt="user" class="profile-pic" />
+                    </a>
+
+                    <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" *ngIf="identity.image"><img src="{{url + 'user/avatar/' + identity.image}}"
                             alt="user" class="profile-pic" /></a>
                     <div class="dropdown-menu dropdown-menu-right animated fadeIn fast">
                         <ul class="dropdown-user">
-                            <!-- <li>
-                                <div class="dw-user-box">
-                                    <div class="u-img"><img src="{{url + 'user/avatar/' + identity.image}}" alt="user">
-                                    </div>
-                                </div>
 
-                            </li> -->
                             <li role="separator" class="divider"></li>
                             <li><a [routerLink]="['/dashboard/perfil', identity.sub]" ><i class="ti-user"></i> Mi Perfil</a></li>
-
                             <li><a [routerLink]="['/dashboard/ajustes']"><i class="ti-settings"></i> Ajustes</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a [routerLink]="['/logout/1']"><i class="fa fa-power-off"></i>Salir</a>
+                            <li><a [routerLink]="['/logout/1']"><i class="fa fa-power-off"></i> Salir</a>
                             </li>
                         </ul>
                     </div>

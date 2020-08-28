@@ -15,36 +15,17 @@ export class UserService {
         public _http: HttpClient
     ) {
         this.url = global.url;
-        // this.cargarStorage();
     }
-    // test(){
-    //     return "Hola mundo desde un servicio";
-    // }
-
-    // estaLogueado(){
-    //     return (this.token.length > 5) ? true : false;
-    // }
-
-    // cargarStorage(){
-    //     if(localStorage.getItem('token')){
-    //       this.token = localStorage.getItem('token');
-    //       this.identity = JSON.parse(localStorage.getItem('identity'));
-    //     } else{
-    //       this.token = '';
-    //       this.identity = null;
-    //     }
-    //   }
 
     register(user): Observable<any> {
         let json = JSON.stringify(user);
         let params = 'json=' + json;
 
         let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-
         return this._http.post(this.url + 'register', params, { headers: headers });
     }
 
-    // Metodo para identificar el usuario.
+    // Metodo para identificar el usuario
     singup(user, gettoken = null): Observable<any> {
         if (gettoken != null) {
             user.gettoken = 'true';
@@ -78,7 +59,6 @@ export class UserService {
         } else {
             this.identity = null;
         }
-
         return this.identity;
     }
 
@@ -90,7 +70,6 @@ export class UserService {
         } else {
             this.token = null;
         }
-
         return this.token;
     }
 
@@ -102,7 +81,6 @@ export class UserService {
         } else {
             this.image = null;
         }
-
         return this.image;
     }
 

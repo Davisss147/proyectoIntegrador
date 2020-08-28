@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { SettingsService } from '../../services/settings.service';
-// import { CategoryService } from '../../services/category.service';
 import { Post } from '../../models/post.model';
 import { PostService } from '../../services/post.service';
 import { UserService } from '../../services/user.service';
@@ -24,10 +22,8 @@ export class DashboardComponent implements OnInit {
   public token;
 
   constructor(
-    // private settingsService: SettingsService,
     private _postService: PostService,
     private _userService: UserService
-    // private _categoryService: CategoryService
   ) { 
     this.page_title = 'Inicio';
     this.url = global.url;

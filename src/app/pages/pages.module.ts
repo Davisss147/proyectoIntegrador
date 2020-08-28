@@ -19,10 +19,6 @@ import { CategoryDetailComponent } from './category-detail/category-detail.compo
 import { ProfileComponent } from './profile/profile.component';
 
 
-
-
-
-
 @NgModule({
   declarations: [
     DashboardComponent,

@@ -5,7 +5,12 @@
 <div class="container-fluid mt-3" *ngIf="posts">
 
     <div id="user-card">
-        <div class="avatar_mask_profile float-left mr-2">
+
+        <div class="avatar_mask_profile float-left mr-2" *ngIf="!identity.image">
+            <img src="assets/images/user-default.png" class="avatar_nav" />
+        </div>
+
+        <div class="avatar_mask_profile float-left mr-2" *ngIf="identity.image">
             <img src="{{url + 'user/avatar/' + identity.image}}" class="avatar_nav" />
         </div>
         <div class="data_mask float-left">

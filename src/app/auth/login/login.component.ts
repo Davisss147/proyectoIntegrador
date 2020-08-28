@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
     private _route: ActivatedRoute
 
   ) {
-    // this.page_title = 'Identificate';
     this.user = new User(1, '', '', 'ROLE_USER', '', '', '', '');
   }
 
@@ -52,7 +51,6 @@ export class LoginComponent implements OnInit {
                 localStorage.setItem('token', this.token);
                 localStorage.setItem('identity', JSON.stringify(this.identity));
                 this._router.navigate(['dashboard/dashboard']);
-
             },
             error => {
               this.status = 'error';
@@ -87,14 +85,4 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-
- 
-
 }
-
-
-
-
- // login() {
-  //   // this.router.navigateByUrl('/');
-  // }

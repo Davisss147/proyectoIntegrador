@@ -85,7 +85,7 @@ export class PostEditComponent implements OnInit {
     // Sacar el id del post de la url
     this._route.params.subscribe(params => {
       let id = +params['id'];
-      
+
       // Peticion ajax para sacar los datos del post
       this._postService.getPost(id).subscribe(
         response => {
@@ -121,7 +121,7 @@ export class PostEditComponent implements OnInit {
             this.status = 'success';
 
             //redirigimos a la pagina del post 
-            
+
             this._router.navigate(['/dashboard/entrada', this.post.id]);
          }else{
            this.status = 'error';

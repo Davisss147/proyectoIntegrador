@@ -4,6 +4,8 @@ import { Post } from '../../models/post.model';
 import { PostService } from '../../services/post.service';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user.model';
+import { global } from '../../services/global.service';
+
 
 @Component({
   selector: 'app-post-detail',
@@ -15,6 +17,7 @@ export class PostDetailComponent implements OnInit {
 
   public post: Post;
   public identity;
+  public url;
 
   constructor(
     private _postService: PostService,
@@ -23,6 +26,7 @@ export class PostDetailComponent implements OnInit {
     private _userService: UserService
   ) { 
     this.identity = this._userService.getIdentity();
+    this.url = global.url;
   }
 
   ngOnInit(){

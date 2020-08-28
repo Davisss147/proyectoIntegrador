@@ -27,7 +27,6 @@ export class BreadcrumbsComponent implements OnDestroy {
     this.tituloSubs$.unsubscribe();
   }
 
-
   getArgumentosRuta() {
 
     return this.router.events
@@ -37,6 +36,4 @@ export class BreadcrumbsComponent implements OnDestroy {
         map( (event: ActivationEnd) => event.snapshot.data ),
       );
   }
-
-
 }

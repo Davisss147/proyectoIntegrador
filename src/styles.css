@@ -20,8 +20,14 @@
 }
 
 .post-image{
-    height: 200px;
+    height: 300px;
     overflow: hidden;
+}
+
+.post-image2{
+    width: 650px;
+    margin: auto;
+    border: 2px solid gray;
 }
 
 .avatar_mask{

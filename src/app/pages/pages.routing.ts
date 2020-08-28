@@ -15,25 +15,21 @@ import { ProfileComponent } from './profile/profile.component';
 import { IdentityGuard } from '../services/identity.guard';
 
 
-import { LoginComponent } from '../auth/login/login.component'
+import { LoginComponent } from '../auth/login/login.component';
 
 const routes: Routes = [
     { 
         path: 'dashboard',
         component: PagesComponent,
-        // canActivate: [LoginComponent],
         children: [
-            { path: 'dashboard', component: DashboardComponent, data: { titulo: 'Home' }, canActivate: [IdentityGuard]},
+            { path: 'dashboard', component: DashboardComponent, data: { titulo: 'Home' }},
             { path: 'blog', component: BlogComponent, data: { titulo: 'Blog' }, canActivate: [IdentityGuard]},
             { path: 'categorias', component: CategoriasComponent, data: { titulo: 'Categorias' }, canActivate: [IdentityGuard]},
             { path: 'ajustes', component: AjustesComponent, data: { titulo: 'Ajustes' }, canActivate: [IdentityGuard]},
-            { path: 'entrada/:id', component: PostDetailComponent, data: { titulo: 'Blog' }, canActivate: [IdentityGuard]},
+            { path: 'entrada/:id', component: PostDetailComponent, data: { titulo: '' }, canActivate: [IdentityGuard]},
             { path: 'editar-entrada/:id', component: PostEditComponent, data: { titulo: 'Editar-Blog' }, canActivate: [IdentityGuard]},
             { path: 'categoria/:id', component: CategoryDetailComponent, data: { titulo: 'Categoria' }, canActivate: [IdentityGuard]},
             { path: 'perfil/:id', component: ProfileComponent, data: { titulo: 'Perfil' }, canActivate: [IdentityGuard]}
-
-            // { path: 'account-settings', component: AccountSettingsComponent, data: { titulo: 'Ajustes de cuenta' }},
-            // { path: 'rxjs', component: RxjsComponent, data: { titulo: 'RxJs' }},
         ]
     },
 ];

@@ -10,7 +10,6 @@ export class IdentityGuard implements CanActivate{
         private _userService: UserService
     ){}
 
-
     canActivate(){
         let identity = this._userService.getIdentity();
         
@@ -20,6 +19,5 @@ export class IdentityGuard implements CanActivate{
             this._router.navigate(['/login']);
             return false;
         }
-
     }
 }

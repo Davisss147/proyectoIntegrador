@@ -93,12 +93,10 @@ export class AjustesComponent implements OnInit {
           }
           this.identity = this.user;
           localStorage.setItem('identity', JSON.stringify(this.identity));
-          
 
         } else {
           this.status = 'error';
         }
-
       },
       error => {
         this.status = 'error';
@@ -111,5 +109,4 @@ export class AjustesComponent implements OnInit {
     let data = JSON.parse(datos.response);
     this.user.image = data.image;
   }
-
 }

@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-// import { SettingsService } from '../../services/settings.service';
-// import { CategoryService } from '../../services/category.service';
 import { Post } from '../../models/post.model';
 import { User } from '../../models/user.model';
-
 import { PostService } from '../../services/post.service';
 import { UserService } from '../../services/user.service';
 import { global } from '../../services/global.service';
@@ -25,7 +22,7 @@ export class ProfileComponent implements OnInit {
   public token;
 
   constructor(
-    // private settingsService: SettingsService,
+    // private settingsService: SettingsService
     private _postService: PostService,
     private _userService: UserService,
     private _route: ActivatedRoute,
@@ -89,5 +86,4 @@ export class ProfileComponent implements OnInit {
       }
     );
   }
-
 }
